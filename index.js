@@ -4,14 +4,80 @@ for (var i =0;i<numberOfDrums;i++){
     document.querySelectorAll(".drum")[i].addEventListener("click", function () {
         var clickDrum = this.innerHTML;
         playSound(clickDrum);
+        var currentText = "0";
+
+    switch(clickDrum){
+        case "1":
+            currentText = "one";
+            break;
+
+        case "2":
+            currentText = "two";
+            break;
+
+        case "3":
+            currentText = "three";
+            break;
+            
+            
+        case "4":
+            currentText = "four";
+            break;
+
+        case "5":
+            currentText = "five";
+            break;
+
+        case "6":
+            currentText = "six";
+            break;
+
+        case "7":
+            currentText = "seven";
+     
+    }
+        createAnimation(currentText);
         
     });
 }
 
 
 document.addEventListener("keypress", function(event){
-
+    var currentClass = "0";
     playSound(event.key);
+
+    switch(event.key){
+        case "1":
+            currentClass = "one";
+            break;
+
+        case "2":
+            currentClass = "two";
+            break;
+
+        case "3":
+            currentClass = "three";
+            break;
+            
+            
+        case "4":
+            currentClass = "four";
+            break;
+
+        case "5":
+            currentClass = "five";
+            break;
+
+        case "6":
+            currentClass = "six";
+            break;
+
+        case "7":
+            currentClass = "seven";
+     
+    }
+    createAnimation(currentClass);
+    
 });
 
 
@@ -58,4 +124,14 @@ function playSound(key){
             crash.play();  
         
      }
+}
+
+function createAnimation(currentTextOrClass){
+   var activateButton = document.querySelector("."+currentTextOrClass);
+
+   activateButton.classList.add("pressed");
+
+   setTimeout(function(){
+    activateButton.classList.remove("pressed");
+   },200);
 }
